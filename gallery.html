@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- To make sure layout adapt to different devices -->
+    <link rel="stylesheet" href="css/styles.css"> <!-- style in another css file -->
+    <title>Gallery | Min favorithobby</title> <!-- change to different pages -->
+</head>
+
+<body>
+    
+    <!-- Navigation bar -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo">
+                <img src="images/crochet_logo.png" alt="Crochet World logo">
+            </a>
+
+            <div class="nav-links"> <!-- with 'active' to identify which is current page -->
+                <a href="index.html">Home</a> 
+                <a href="about.html">About</a>
+                <a href="tools.html">Tools</a>
+                <a class="active" href="gallery.html">Gallery</a>
+            </div> <!-- navigator buttons -->
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="page-banner">
+            <h1>Gallery</h1>
+            <p>Each piece is the result of hours of work, creativity, and passion. Take a look and enjoy the details up close!</p>
+        </div>
+
+<!-- image container  -->
+        <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="images/airpods.PNG" alt="Airpods case">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="images/bag.PNG" alt="Handmade Bag">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="images/brown_coaster.PNG" alt="Brown Coaster">
+        </div>
+            
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="images/granny_coaster.PNG" alt="Granny Coaster">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="images/hairband.PNG" alt="Hairband">
+        </div>
+            
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="images/socks.PNG" alt="Socks">
+        </div>
+            
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="images/airpods.PNG"  onclick="currentSlide(1)" alt="Airpods case">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/bag.PNG"  onclick="currentSlide(2)" alt="Handmade Bag">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/brown_coaster.PNG"  onclick="currentSlide(3)" alt="Brown Coaster">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/granny_coaster.PNG" onclick="currentSlide(4)" alt="Granny Coaster">
+            </div>  
+            <div class="column">
+                <img class="demo cursor" src="images/hairband.PNG" onclick="currentSlide(5)" alt="Hairband">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="images/socks.PNG"  onclick="currentSlide(6)" alt="Socks">
+            </div>
+        </div>
+
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+        </script>
+    
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+        <p>© 2026 T.L. All rights reserved.</p>
+    </footer>
+</body>
+
